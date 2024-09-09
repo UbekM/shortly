@@ -11,6 +11,15 @@ let overlayMenu = document.querySelector(".overlay");
 let navBar = document.querySelector(".nav");
 let navChildren = document.querySelectorAll(".child");
 let darkMode = document.querySelector(".dark");
+let mainElement = document.querySelector(".main");
+let products = document.querySelector(".products");
+let brands = document.querySelector(".brands");
+let here = document.querySelector(".here");
+let section = document.querySelector(".section");
+let header = document.querySelector(".header");
+let brandHeader = document.querySelector(".header-2");
+let someProducts = document.querySelector(".some");
+let darkModeToggle = document.querySelector('input[type="checkbox"]');
 
 //  Navbar on mobile
 hamburgerMenu.addEventListener("click", (e) => {
@@ -39,13 +48,18 @@ document.addEventListener("click", (e) => {
   } else {
   }
 });
-darkMode.addEventListener("click", () => {
-  if (navBar.style.backgroundColor === "#25233A") {
-    // #25233A in RGB format
-    navBar.style.backgroundColor = "white"; // Light mode color
-  } else {
-    navBar.style.backgroundColor = "#25233A"; // Dark mode color
-  }
+
+// Darkmode
+darkModeToggle.addEventListener("change", () => {
+  navBar.classList.toggle("dark:bg-[#3F3D56]");
+  mainElement.classList.toggle("dark:bg-[#25233A]");
+  header.classList.toggle("dark:text-white");
+  section.classList.toggle("dark:bg-[#3F3D56]");
+  section.classList.toggle("dark:text-white");
+  brands.classList.toggle("dark:bg-[#3F3D56]");
+  brandHeader.classList.toggle("dark:text-white");
+  products.classList.toggle("dark:bg-[#25233A]");
+  someProducts.classList.toggle("dark:text-white");
 });
 
 // Shorten Link with bit.ly API
@@ -116,21 +130,21 @@ var typewriter = new Typewriter(app, {
 
 typewriter
   .typeString(
-    "More than just <strong class='text-[#247e88] font-extrabold'>Shorter links</strong>"
+    "More than just <strong class='text-[#29b2b7] font-extrabold'>Shorter links</strong>"
   )
   .pauseFor(2500)
   .deleteAll()
   .typeString(
-    "We offer <strong class='text-[#247e88] font-extrabold'>Brand Identity</strong>"
+    "We offer <strong class='text-[#29b2b7] font-extrabold'>Brand Identity</strong>"
   )
   .pauseFor(2500)
   .deleteChars(14)
   .typeString(
-    "<strong class='text-[#247e88] font-extrabold'>E-Commerce</strong>"
+    "<strong class='text-[#29b2b7] font-extrabold'>E-Commerce</strong>"
   )
   .deleteAll()
   .typeString(
-    "<strong class='text-[#247e88] font-extrabold'>and Analytics</strong>"
+    "<strong class='text-[#29b2b7] font-extrabold'>and Analytics</strong>"
   )
   .pauseFor(2500)
   .start();
