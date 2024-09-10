@@ -14,11 +14,15 @@ let darkMode = document.querySelector(".dark");
 let mainElement = document.querySelector(".main");
 let products = document.querySelector(".products");
 let brands = document.querySelector(".brands");
-let here = document.querySelector(".here");
+const here = document.getElementById("here");
 let section = document.querySelector(".section");
 let header = document.querySelector(".header");
 let brandHeader = document.querySelector(".header-2");
 let someProducts = document.querySelector(".some");
+let card = document.querySelector(".card");
+let card2 = document.querySelector(".card2");
+let card3 = document.querySelector(".card3");
+let swipe = document.querySelector(".swipe");
 let darkModeToggle = document.querySelector('input[type="checkbox"]');
 
 //  Navbar on mobile
@@ -51,15 +55,20 @@ document.addEventListener("click", (e) => {
 
 // Darkmode
 darkModeToggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
   navBar.classList.toggle("dark:bg-[#3F3D56]");
   mainElement.classList.toggle("dark:bg-[#25233A]");
   header.classList.toggle("dark:text-white");
-  section.classList.toggle("dark:bg-[#3F3D56]");
+  section.classList.toggle("dark:bg-[#2F3D56]");
   section.classList.toggle("dark:text-white");
-  brands.classList.toggle("dark:bg-[#3F3D56]");
+  brands.classList.toggle("dark:bg-[#2F3D56]");
   brandHeader.classList.toggle("dark:text-white");
   products.classList.toggle("dark:bg-[#25233A]");
   someProducts.classList.toggle("dark:text-white");
+  card.classList.toggle("dark:bg-[#232027]");
+  card2.classList.toggle("dark:bg-[#232027]");
+  card3.classList.toggle("dark:bg-[#232027]");
+  swipe.classList.toggle("dark:bg-gray-200");
 });
 
 // Shorten Link with bit.ly API
@@ -193,4 +202,17 @@ var swiper = new Swiper(".swiper", {
       spaceBetween: 10,
     },
   },
+});
+
+// Confetti
+here.addEventListener("click", () => {
+  confetti({
+    particleCount: 200, // Reduced particle count
+    spread: 120, // Increased spread
+    origin: { y: 0.5 }, // Adjusted origin
+    ticks: 100,
+    gravity: 0,
+    decay: 0.94,
+    startVelocity: 30,
+  });
 });
